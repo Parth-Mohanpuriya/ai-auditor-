@@ -11,12 +11,12 @@ interface BadgeProps {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  default: 'bg-slate-100 text-slate-700',
-  blue: 'bg-blue-50 text-blue-700',
-  green: 'bg-green-50 text-green-700',
-  yellow: 'bg-yellow-50 text-yellow-700',
-  red: 'bg-red-50 text-red-700',
-  slate: 'bg-slate-100 text-slate-500',
+  default: 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/50 dark:border-slate-700/50',
+  blue: 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200/50 dark:border-blue-800/40',
+  green: 'bg-green-50 dark:bg-emerald-950/60 text-green-700 dark:text-emerald-300 border border-green-200/50 dark:border-emerald-800/40',
+  yellow: 'bg-yellow-50 dark:bg-amber-950/60 text-yellow-700 dark:text-amber-300 border border-amber-200/50 dark:border-amber-800/40',
+  red: 'bg-red-50 dark:bg-rose-950/60 text-red-700 dark:text-rose-300 border border-red-200/50 dark:border-rose-800/40',
+  slate: 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200/50 dark:border-slate-700/50',
 }
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {

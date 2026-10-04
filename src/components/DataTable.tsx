@@ -30,12 +30,12 @@ export function DataTable<T extends Record<string, unknown>>({
     <div className={cn('overflow-x-auto', className)}>
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-slate-200">
+          <tr className="border-b border-slate-200 dark:border-slate-800">
             {columns.map(col => (
               <th
                 key={col.key}
                 className={cn(
-                  'py-3 px-4 text-xs font-semibold text-slate-500 uppercase tracking-wide whitespace-nowrap',
+                  'py-3 px-4 text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide whitespace-nowrap bg-slate-50/50 dark:bg-slate-800/30',
                   col.align === 'right' && 'text-right',
                   col.align === 'center' && 'text-center',
                   !col.align && 'text-left',
@@ -47,12 +47,12 @@ export function DataTable<T extends Record<string, unknown>>({
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
           {data.length === 0 ? (
             <tr>
               <td
                 colSpan={columns.length}
-                className="py-12 text-center text-sm text-slate-400"
+                className="py-12 text-center text-sm text-slate-400 dark:text-slate-500"
               >
                 {emptyMessage}
               </td>
@@ -62,7 +62,7 @@ export function DataTable<T extends Record<string, unknown>>({
               <tr
                 key={i}
                 className={cn(
-                  'border-b border-slate-100 hover:bg-slate-50 transition-colors duration-100',
+                  'border-b border-slate-100 dark:border-slate-800/60 hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors duration-100',
                   rowClassName?.(row),
                 )}
               >
@@ -70,7 +70,7 @@ export function DataTable<T extends Record<string, unknown>>({
                   <td
                     key={col.key}
                     className={cn(
-                      'py-3 px-4 text-slate-700 whitespace-nowrap',
+                      'py-3 px-4 text-slate-700 dark:text-slate-200 whitespace-nowrap',
                       col.align === 'right' && 'text-right',
                       col.align === 'center' && 'text-center',
                       col.className,

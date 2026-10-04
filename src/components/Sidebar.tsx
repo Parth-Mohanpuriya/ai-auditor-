@@ -39,7 +39,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-black/20 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
           onClick={onMobileClose}
           aria-hidden="true"
         />
@@ -48,15 +48,16 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
       {/* Sidebar panel */}
       <aside
         className={cn(
-          'fixed top-0 left-0 h-full w-60 bg-white border-r border-slate-200 z-40 flex flex-col transition-transform duration-200',
+          'fixed top-0 left-0 h-full w-60 bg-white dark:bg-[#111827] border-r border-slate-200 dark:border-slate-800 z-40 flex flex-col transition-transform duration-200',
           'lg:static lg:translate-x-0 lg:z-auto',
           mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
         )}
       >
         {/* Logo */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800">
           <div>
-            <span className="text-sm font-bold text-slate-900 tracking-tight">
+            <span className="text-sm font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-blue-500 inline-block shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
               AI Auditor
             </span>
             <span className="block text-[9px] font-semibold text-slate-400 uppercase tracking-widest mt-0.5">
@@ -65,7 +66,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
           </div>
           {/* Mobile close */}
           <button
-            className="lg:hidden p-1 rounded text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="lg:hidden p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
             onClick={onMobileClose}
             aria-label="Close sidebar"
           >
@@ -85,8 +86,8 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
                     cn(
                       'flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors duration-100',
                       isActive
-                        ? 'bg-blue-50 text-blue-700 font-medium'
-                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
+                        ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 font-semibold border-l-2 border-blue-600 dark:border-blue-500'
+                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-100',
                     )
                   }
                 >
@@ -95,7 +96,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
                       <item.icon
                         className={cn(
                           'w-4 h-4 flex-shrink-0',
-                          isActive ? 'text-blue-600' : 'text-slate-400',
+                          isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500',
                         )}
                       />
                       <span>{item.label}</span>
@@ -108,7 +109,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
         </nav>
 
         {/* Bottom */}
-        <div className="border-t border-slate-200 py-3 px-2">
+        <div className="border-t border-slate-200 dark:border-slate-800 py-3 px-2">
           <NavLink
             to="/settings"
             onClick={onMobileClose}
@@ -116,8 +117,8 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
               cn(
                 'flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors duration-100',
                 isActive
-                  ? 'bg-blue-50 text-blue-700 font-medium'
-                  : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900',
+                  ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-400 font-semibold'
+                  : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-slate-100',
               )
             }
           >
@@ -126,7 +127,7 @@ export function Sidebar({ mobileOpen, onMobileClose }: SidebarProps) {
                 <Settings
                   className={cn(
                     'w-4 h-4 flex-shrink-0',
-                    isActive ? 'text-blue-600' : 'text-slate-400',
+                    isActive ? 'text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500',
                   )}
                 />
                 <span>Settings</span>

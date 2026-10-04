@@ -69,30 +69,30 @@ export function Modal({
       role="dialog"
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" aria-hidden="true" />
 
       {/* Panel */}
       <div
         className={cn(
-          'relative w-full bg-white rounded-lg border border-slate-200 shadow-lg',
+          'relative w-full bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 shadow-2xl text-slate-900 dark:text-slate-100',
           sizeClasses[size],
           className,
         )}
       >
         {/* Header */}
         {(title || description) && (
-          <div className="flex items-start justify-between p-5 border-b border-slate-200">
+          <div className="flex items-start justify-between p-5 border-b border-slate-200 dark:border-slate-800">
             <div>
               {title && (
-                <h2 className="text-sm font-semibold text-slate-900">{title}</h2>
+                <h2 className="text-sm font-semibold text-slate-900 dark:text-white">{title}</h2>
               )}
               {description && (
-                <p className="text-xs text-slate-500 mt-0.5">{description}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{description}</p>
               )}
             </div>
             <button
               onClick={onClose}
-              className="ml-4 p-1 rounded text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+              className="ml-4 p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               aria-label="Close modal"
             >
               <X className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function Modal({
 
         {/* Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-slate-200">
+          <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-slate-200 dark:border-slate-800">
             {footer}
           </div>
         )}
@@ -162,7 +162,7 @@ export function ConfirmModal({
       }
     >
       {description && (
-        <p className="text-sm text-slate-600">{description}</p>
+        <p className="text-sm text-slate-600 dark:text-slate-300">{description}</p>
       )}
     </Modal>
   )

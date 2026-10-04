@@ -1,21 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-bg-base: #F8FAFC;
-  --color-surface: #FFFFFF;
-  --color-text-primary: #0F172A;
-  --color-text-secondary: #64748B;
-  --color-border: #E2E8F0;
-  --color-brand: #1D4ED8;
-  --color-brand-light: #EFF6FF;
-  --color-brand-hover: #1E40AF;
-  --color-positive: #16A34A;
-  --color-positive-light: #F0FDF4;
-  --color-warning: #D97706;
-  --color-warning-light: #FFFBEB;
-  --color-danger: #DC2626;
-  --color-danger-light: #FEF2F2;
+  --color-bg-base: #0B0F19;
+  --color-surface: #111827;
+  --color-text-primary: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --color-border: #1F2937;
+  --color-brand: #3B82F6;
+  --color-brand-light: #1E3A8A;
+  --color-brand-hover: #2563EB;
+  --color-positive: #22C55E;
+  --color-positive-light: #14532D;
+  --color-warning: #F59E0B;
+  --color-warning-light: #78350F;
+  --color-danger: #EF4444;
+  --color-danger-light: #7F1D1D;
 
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
 
@@ -31,22 +33,37 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
 }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #F8FAFC;
-  color: #0F172A;
   margin: 0;
   padding: 0;
   font-size: 14px;
   line-height: 1.5;
+  background-color: #0B0F19;
+  color: #F3F4F6;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-/* Scrollbar */
+html:not(.dark) body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* Custom scrollbars */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -54,10 +71,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #334155;
   border-radius: 3px;
 }
 
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #475569;
 }

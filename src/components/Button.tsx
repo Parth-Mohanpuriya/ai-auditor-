@@ -16,13 +16,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    'bg-blue-700 text-white hover:bg-blue-800 active:bg-blue-900 border border-blue-700',
+    'bg-blue-600 text-white hover:bg-blue-500 active:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 border border-blue-600 dark:border-blue-500 shadow-sm',
   secondary:
-    'bg-white text-slate-700 hover:bg-slate-50 active:bg-slate-100 border border-slate-200',
+    'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/80 active:bg-slate-100 dark:active:bg-slate-700 border border-slate-200 dark:border-slate-700/80 shadow-sm',
   ghost:
-    'bg-transparent text-slate-600 hover:bg-slate-100 active:bg-slate-200 border border-transparent',
+    'bg-transparent text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/80 active:bg-slate-200 dark:active:bg-slate-800 border border-transparent',
   danger:
-    'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 border border-red-600',
+    'bg-red-600 text-white hover:bg-red-500 active:bg-red-700 border border-red-600 dark:border-red-500 shadow-sm',
 }
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -51,7 +51,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         disabled={disabled || loading}
         className={cn(
-          'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-150',
+          'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-150 cursor-pointer',
           'focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           variantClasses[variant],
